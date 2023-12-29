@@ -1,0 +1,176 @@
+.cabecalho__menu-hamburguer {
+    width: 24px;
+    height: 24px;
+    background-image: url(../img/Menu.svg);
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.container__botao:checked ~ .container__rotulo > .cabecalho__menu-hamburguer {
+    background-image: url(../img/menu_black_24dp\ 1.svg);
+}
+
+.container__botao:checked ~ .container__rotulo {
+    background: var(--azul-degrade);
+}
+
+.cabecalho {
+    background-color: var(--branco);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 3;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+}
+
+.container__imagem {
+   padding: 1em;    
+}
+
+.lista-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    width: 60vw;
+}
+/*Codigo que funciona como um IF do CSS(nesse caso aqui a variavel é se a caixa estiver marcada(checked) então ele vai puxar a classe depois do sinal ~)*/
+.container__botao:checked ~ .lista-menu {
+    display: block;
+}
+
+.lista-menu__titulo, .lista-menu__item {
+    padding: 1em;
+    background-color: var(--branco);
+}
+
+.lista-menu__titulo {
+    color: var(--laranja);
+    font-weight: 700;
+}
+
+.lista-menu__link {
+    background: var(--azul-degrade);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+}
+/*Aqui a classe do input para remover aquela checkbox, o display:none deve ser aplicado na classe do input*/
+.container__botao {
+    display: none;
+}
+
+.container__titulo {
+    display: none;
+}
+
+.opçoes {
+    display: none;
+}
+
+.container__texto {
+    display: none;
+}
+
+/*MEDIA QUERY 1024PX !!!!!!*/
+@media screen and (min-width: 1024px) {
+    .container__titulo, .container__titulo--negrito {
+        font-family: var(--fonte-secundaria);
+        font-size: 30px;
+    }
+
+    .container__titulo {
+        font-weight: 400;
+        display: block;
+    }
+
+    .container__titulo--negrito {
+        font-weight: 700;
+    }
+
+    .opçoes {
+        display: flex;
+    }
+
+    .opçoes__item {
+        padding: 0 1em;
+        text-transform: uppercase;
+    }
+
+    .opçoes__link {
+        text-decoration: none;
+        color: var(--preto);
+    }
+
+    .container__imagem-transparente {
+        display: none;
+    }
+
+    .cabecalho__menu-hamburguer {
+        display: none;
+    }
+
+    .opçoes__botao:checked ~ .lista-menu {
+        display: block;
+        width: auto;
+    }
+
+    .opçoes__botao {
+        display: none;
+    }
+
+    .container__titulo {
+        display: none;
+    }
+
+    .opçoes__botao:checked ~ .opçoes__rotulo > .opçoes__item {
+        background: var(--azul-degrade);
+        color: var(--branco);
+    }
+
+    .opçoes__item {
+        padding: 2em 1em;
+    }
+
+    .lista-menu__item:hover {
+        background: var(--azul-degrade);
+    }
+
+    .lista-menu__item:hover > .lista-menu__link {
+        -webkit-text-fill-color: var(--branco);
+        text-decoration: none;
+    }
+}
+/*FIM MEDIA QUERY 1024PX !!!!!!*/
+
+/*MEDIA QUERY 1728PX !!!!!!*/
+@media screen and (min-width: 1728px) {
+    .container__link {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: var(--preto);
+        font-size: 20px;
+    }
+
+    .container__titulo {
+        font-size: 20px;
+        margin-right: 1em;
+        display: block;
+    }
+
+    .cabecalho {
+        padding: 0 2em;
+    }
+
+    .opçoes {
+        margin-right: auto;/*Quando em display:flex, esse valor quando usado vai empurrar todo o conteudo na direção oposta*/
+    }
+
+}
